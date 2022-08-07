@@ -13,10 +13,11 @@ function onFormData(evt) {
 
   const currentValue = localStorage.getItem('feedback-form-state');
   const parseValue = JSON.parse(currentValue);
-  console.log(parseValue);
+  console.log(parseValue.email);
 }
 
 function onFormSubmit(evt) {
   evt.preventDefault();
   evt.currentTarget.reset();
+  localStorage.removeItem('feedback-form-state');
 }
