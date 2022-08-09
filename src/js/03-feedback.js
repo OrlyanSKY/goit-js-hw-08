@@ -3,7 +3,6 @@ import throttle from 'lodash.throttle';
 const form = document.querySelector('.feedback-form');
 const input = document.querySelector('.feedback-form input');
 const textarea = document.querySelector('.feedback-form textarea');
-const subBtn = document.querySelector('button');
 
 form.addEventListener('input', throttle(onFormData, 500));
 form.addEventListener('submit', onFormSubmit);
@@ -22,10 +21,9 @@ function onFormData(evt) {
 function onFormSubmit(evt) {
   evt.preventDefault();
 
-  if (input.value === '' || textarea === '') {
+  if (!input.value || !textarea.value) {
     return;
   }
-
   console.log(formData);
   formData = {};
   evt.currentTarget.reset();
