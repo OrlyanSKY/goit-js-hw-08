@@ -21,7 +21,7 @@ function onFormData(evt) {
 function onFormSubmit(evt) {
   evt.preventDefault();
 
-  if (!input.value || !textarea.value) {
+  if (!evt.target.elements[0].value || !evt.target.elements[1].value) {
     return;
   }
   console.log(formData);
